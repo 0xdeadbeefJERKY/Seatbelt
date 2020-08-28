@@ -27,15 +27,10 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: PublishBuildArtifacts@1
+- task: CopyFilesOverSSH@0
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'Seatbelt'
-    publishLocation: 'Container'
-
-- task: DownloadBuildArtifacts@0
-  inputs:
-    buildType: 'current'
-    downloadType: 'single'
-    artifactName: 'Seatbelt'
-    downloadPath: '$(System.ArtifactsDirectory)'
+    sshEndpoint: 'offensive-tooling-artifact-storage'
+    contents: '**/*.exe'
+    targetFolder: '/var/www/html'
+    readyTimeout: '20000'
+    failOnEmptySource: true
