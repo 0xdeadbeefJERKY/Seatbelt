@@ -28,8 +28,6 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: 
-
 - task: CopyFilesOverSSH@0
   inputs:
     sshEndpoint: 'offensive-tooling-artifact-storage'
