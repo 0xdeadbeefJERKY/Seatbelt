@@ -13,6 +13,7 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  toolName: 'Seatbelt'
 
 steps:
 - task: NuGetToolInstaller@1
@@ -27,10 +28,13 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: 
+
 - task: CopyFilesOverSSH@0
   inputs:
     sshEndpoint: 'offensive-tooling-artifact-storage'
-    contents: '**/*.exe'
+    #contents: '**/*.exe'
+    contents: '$(toolName)\bin\Release\$(toolName).exe'
     targetFolder: '/var/www/html'
     readyTimeout: '20000'
     failOnEmptySource: true
