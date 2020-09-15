@@ -36,3 +36,4 @@ steps:
     targetFolder: '/var/www/html'
     readyTimeout: '20000'
     failOnEmptySource: true
+    flattenFolders: true
