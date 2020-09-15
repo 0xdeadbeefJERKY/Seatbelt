@@ -48,7 +48,7 @@ steps:
         </rule>
         <module path="Seatbelt\bin\Release\Seatbelt.exe" />
       </project>' | ac Confuser.crproj
-      .\confuserex\Confuser.CLI.exe Confuser.crproj
+      .\confuserex\Confuser.CLI.exe -n Confuser.crproj
     failOnStderr: true
 
 - task: CopyFilesOverSSH@0
